@@ -173,13 +173,20 @@ int main(int argc, char *argv[])
         if (sanity_checking)
             treapcheck(root, -1);
     }
-
+    /*m == length || */
     if (m == length || !(m % del))
     {
         estimate = treapcount / ((double)p + 0.5);
         ratio = estimate / (double)count;
         printf("%.4f%12d (%.4f), vol %08x after %d\n", estimate, count, ratio, p, m);
     }
+    estimate = treapcount / ((double)p + 0.5);
+    ratio = estimate / (double)count;
+    printf("%.4f%12d (%.4f), vol %08x after %d\n", estimate, count, ratio, p, m);
+    // printf("%.4f%12d (%.4f), vol %08x after %d\n", estimate, count, ratio, p, m);
+    // // ... (existing code)
+
+    // Print the result once at the end
 
     return 0;
 }
