@@ -107,7 +107,8 @@ int main(int argc, char *argv[])
 
         for (k = a ^ signbit, h = (k * hashmult) & (hashsize - 1); hash[h]; h = (h ? h - 1 : hashsize - 1))
             if (hash[h] == k)
-                goto found;
+                printf("goto");
+        goto found;
         count++, hash[h] = k;
         if (count > (7 * hashsize) / 8)
         {
@@ -120,10 +121,12 @@ int main(int argc, char *argv[])
         u = gb_next_rand();
         if (u <= p)
         {
+            printf("u<=p");
             if (u == p)
                 fprintf(stderr, "(discarded element %d of vol %08x at time %d)\n", a, u, m);
             else
             {
+                printf("check for treapcount inc");
                 l = avail, avail = treap[l].left, treapcount = treapcount + treapcountinc;
                 treap[l].elt = a, treap[l].vol = u;
                 for (r = ~ssize, q = root; q >= 0 && treap[q].vol > u;)
@@ -173,9 +176,13 @@ int main(int argc, char *argv[])
         if (sanity_checking)
             treapcheck(root, -1);
     }
-    /*m == length || */
-    if (m == length || !(m % del))
+    printf("End Of For Loop ");
+    printf(" m is %d and length is %d", m, length);
+    /* || !(m % del)*/
+    if (m == length + 1)
     {
+        printf("If cleared");
+        printf("%f", treapcount);
         estimate = treapcount / ((double)p + 0.5);
         ratio = estimate / (double)count;
         printf("%.4f%12d (%.4f), vol %08x after %d\n", estimate, count, ratio, p, m);
