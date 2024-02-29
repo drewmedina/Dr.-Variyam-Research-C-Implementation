@@ -1,7 +1,36 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": []
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "kmerestimates",
+      "request": "launch",
+      "mainClass": "kmerestimates",
+      "projectName": "Dr.-Variyam-Research-C-Implementation_c0acb125"
+    },
+    {
+      "type": "java",
+      "name": "RandomNumGenerator",
+      "request": "launch",
+      "mainClass": "RandomNumGenerator",
+      "projectName": "Dr.-Variyam-Research-C-Implementation_c0acb125"
+    },
+    {
+      "type": "java",
+      "name": "cvm_estimates",
+      "request": "launch",
+      "mainClass": "cvm_estimates",
+      "projectName": "Dr.-Variyam-Research-C-Implementation_c0acb125"
+    },
+    {
+      "type": "java",
+      "name": "ItemProcessor",
+      "request": "launch",
+      "mainClass": "ItemProcessor",
+      "projectName": "Dr.-Variyam-Research-C-Implementation_c0acb125"
+    }
+  ]
 }

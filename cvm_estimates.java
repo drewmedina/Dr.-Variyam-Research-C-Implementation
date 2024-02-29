@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class ItemProcessor {
+public class cvm_estimates {
     public static void main(String[] args) {
         List<String> buffer = new ArrayList<>();
         int invProbability = 1;
@@ -52,7 +52,7 @@ public class ItemProcessor {
     }
 
     private static boolean isBufferFull(List<String> buffer) {
-        int bufferSizeLimit = 10;  // Adjust the buffer size limit as needed
+        int bufferSizeLimit = 10; // Adjust the buffer size limit as needed
         return buffer.size() >= bufferSizeLimit;
     }
 }
