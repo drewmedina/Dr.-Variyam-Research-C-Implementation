@@ -42,6 +42,18 @@ public class cvm_estimates {
             e.printStackTrace();
         }
 
+        try{
+            Scanner scnr = new Scanner(new File("Shakespeare_data.csv"));
+            File hamlet = new File();
+            while (scnr.hasNextLine){
+                String[] line = scnr.nextLine().split();
+                System.out.println(line);
+                for(int i = 4 ; i < line.length; i++){
+
+                }
+            }
+        }
+
         int result = invProbability * buffer.size();
         System.out.println("Result: " + result);
     }
@@ -52,7 +64,7 @@ public class cvm_estimates {
     }
 
     private static boolean isBufferFull(List<String> buffer) {
-        int bufferSizeLimit = 10; // Adjust the buffer size limit as needed
+        int bufferSizeLimit = 10;
         return buffer.size() >= bufferSizeLimit;
     }
 }
