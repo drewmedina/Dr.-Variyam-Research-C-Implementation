@@ -1,103 +1,172 @@
-package main.java;
-
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Scanner;
+import java.util.Set;
 
+public class Treap {
+    static class TreapNode {
+        public String key;
+        public double priority;
+        TreapNode left, right;
 
-class Treap {
-    public TreapNode root;
-    public Random random;
-
-    public Treap() {
-        this.root = null;
-        this.random = new Random();
-    }
-
-    private int size(TreapNode node) {
-        return node != null ? node.size : 0;
-    }
-
-    private void updateSize(TreapNode node) {
-        if (node != null) {
-            node.size = size(node.left) + size(node.right) + 1;
+        TreapNode(String key, double priority) {
+            this.key = key;
+            this.priority = priority;
         }
     }
 
-    private TreapNode rotateRight(TreapNode node) {
-        TreapNode x = node.left;
-        node.left = x.right;
-        x.right = node;
-        updateSize(node);
-        updateSize(x);
+    public static TreapNode rightRotate(TreapNode y) {
+        TreapNode x = y.left;
+        y.left = x.right;
+        x.right = y;
         return x;
     }
 
-    private TreapNode rotateLeft(TreapNode node) {
-        TreapNode x = node.right;
-        node.right = x.left;
-        x.left = node;
-        updateSize(node);
-        updateSize(x);
-        return x;
+    public static TreapNode leftRotate(TreapNode x) {
+        TreapNode y = x.right;
+        x.right = y.left;
+        y.left = x;
+        return y;
     }
 
-    public void insert(int key, double priority) {
-        root = insert(root, key, priority);
+    public static TreapNode newNode(String key, double priority) {
+        return new TreapNode(key, priority);
     }
 
-    private TreapNode insert(TreapNode node, int key, double priority) {
-        if (node == null) {
-            return new TreapNode(key, priority);
+    public static TreapNode insert(TreapNode root, String key, double priority) {
+        if (root == null) {
+            return newNode(key, priority);
         }
 
-        if (key < node.key) {
-            node.left = insert(node.left, key, priority);
-            if (node.left.priority > node.priority) {
-                node = rotateRight(node);
+        if (priority > root.priority || (priority == root.priority && key.compareTo(root.key) <= 0)) {
+            root.left = insert(root.left, key, priority);
+            if (root.left.priority > root.priority) {
+                root = rightRotate(root);
             }
         } else {
-            node.right = insert(node.right, key, priority);
-            if (node.right.priority > node.priority) {
-                node = rotateLeft(node);
+            root.right = insert(root.right, key, priority);
+            if (root.right.priority > root.priority) {
+                root = leftRotate(root);
             }
         }
 
-        updateSize(node);
-        return node;
+        return root;
     }
 
-    public void delete(int key) {
-        root = delete(root, key);
+    public static TreapNode deleteNode(TreapNode root, String key) {
+        if (root == null) {
+            return root;
+        }
+
+        if (key.compareTo(root.key) < 0) {
+            root.left = deleteNode(root.left, key);
+        } else if (key.compareTo(root.key) > 0) {
+            root.right = deleteNode(root.right, key);
+        } else {
+            if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            }
+
+            if (root.left.priority < root.right.priority) {
+                root = leftRotate(root);
+                root.left = deleteNode(root.left, key);
+            } else {
+                root = rightRotate(root);
+                root.right = deleteNode(root.right, key);
+            }
+        }
+
+        return root;
     }
 
-    private TreapNode delete(TreapNode node, int key) {
-        if (node == null) {
+    public static TreapNode search(TreapNode root, String key) {
+        if (root == null || root.key.equals(key)) {
+            return root;
+        }
+
+        if (key.compareTo(root.key) < 0) {
+            return search(root.left, key);
+        }
+
+        return search(root.right, key);
+    }
+
+    static void inorder(TreapNode root) {
+        if (root != null) {
+            inorder(root.left);
+            System.out.println("key: " + root.key + " | priority: " + root.priority);
+            inorder(root.right);
+        }
+    }
+
+    public static int size(TreapNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        return size(root.left) + size(root.right) + 1;
+    }
+
+    public static TreapNode findMaxPriorityNode(TreapNode root) {
+        if (root == null) {
             return null;
         }
 
-        if (key < node.key) {
-            node.left = delete(node.left, key);
-        } else if (key > node.key) {
-            node.right = delete(node.right, key);
-        } else {
-            if (node.left == null) {
-                return node.right;
-            } else if (node.right == null) {
-                return node.left;
-            } else {
-                if (node.left.priority > node.right.priority) {
-                    node = rotateRight(node);
-                } else {
-                    node = rotateLeft(node);
-                }
-                node = delete(node, key);
-            }
+        TreapNode maxPriorityNode = root;
+
+        while (maxPriorityNode.right != null) {
+            maxPriorityNode = maxPriorityNode.right;
         }
 
-        updateSize(node);
-        return node;
+        return maxPriorityNode;
     }
 
-    public int getSize() {
-        return size(root);
+    public static void replaceMaxPriorityNode(TreapNode root, TreapNode newNode) {
+        TreapNode maxPriorityNode = findMaxPriorityNode(root);
+
+        if (maxPriorityNode != null) {
+            deleteNode(root, maxPriorityNode.key);
+            insert(root, newNode.key, newNode.priority);
+        }
     }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        // Example usage
+        Scanner scnr = new Scanner(new File("Hamlet.txt"));
+        int bufferSize = 10000; // Example buffer size
+        Set<String> set = new HashSet<String>();
+        Random random = new Random();
+        TreapNode root = null;
+        int t = 0;
+        double p = 1;
+
+        while (scnr.hasNextLine()) {
+            String a = scnr.nextLine();
+            set.add(a);
+            t++;
+            double u = random.nextDouble();
+            root = deleteNode(root, a);
+            if (u >= p) {
+                continue;
+            } else if (size(root) < bufferSize) {
+                root = insert(root, a, u);
+            } else {
+                if (findMaxPriorityNode(root).priority < u) {
+                    p = u;
+                } else {
+                    p = findMaxPriorityNode(root).priority;
+                    replaceMaxPriorityNode(root, new TreapNode(a, u));
+                }
+            }
+        }
+        System.out.println(p);
+        System.out.println((size(root) / p));
+        System.out.println(set.size());
+        scnr.close();
+    }
+
 }

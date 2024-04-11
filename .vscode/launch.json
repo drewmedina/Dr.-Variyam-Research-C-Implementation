@@ -4,7 +4,20 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-    
+    {
+      "type": "java",
+      "name": "Treap",
+      "request": "launch",
+      "mainClass": "Treap",
+      "projectName": "Dr.-Variyam-Research-C-Implementation_c0acb125"
+    },
+    {
+      "type": "java",
+      "name": "TreapCVM",
+      "request": "launch",
+      "mainClass": "TreapCVM",
+      "projectName": "Dr.-Variyam-Research-C-Implementation_c0acb125"
+    },
     {
       "type": "java",
       "name": "kmerestimates",
