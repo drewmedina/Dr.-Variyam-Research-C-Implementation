@@ -1,9 +1,8 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class cvm_estimates {
     public static void main(String[] args) {
@@ -44,14 +43,16 @@ public class cvm_estimates {
 
         try{
             Scanner scnr = new Scanner(new File("Shakespeare_data.csv"));
-            File hamlet = new File();
-            while (scnr.hasNextLine){
-                String[] line = scnr.nextLine().split();
+//            File hamlet = new File("");
+            while (scnr.hasNextLine()){
+                String[] line = scnr.nextLine().split("");
                 System.out.println(line);
                 for(int i = 4 ; i < line.length; i++){
 
                 }
             }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         }
 
         int result = invProbability * buffer.size();

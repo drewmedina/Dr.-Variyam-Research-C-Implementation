@@ -1,0 +1,154 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "CardinalityEstimation/1.11.1": {
+        "type": "package",
+        "dependencies": {
+          "murmurhash": "1.0.3"
+        },
+        "compile": {
+          "lib/net6.0/CardinalityEstimation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/CardinalityEstimation.dll": {}
+        }
+      },
+      "murmurhash/1.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MurmurHash.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MurmurHash.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CardinalityEstimation/1.11.1": {
+      "sha512": "KWB0HTibKwH3UTFWRhVzJfenhSlPAzYQ4pWYUkL32OQHITYr076qCMcdk1Kgla0oZXWc0SETYzQ53gUW1P0UGQ==",
+      "type": "package",
+      "path": "cardinalityestimation/1.11.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "cardinalityestimation.1.11.1.nupkg.sha512",
+        "cardinalityestimation.nuspec",
+        "lib/net6.0/CardinalityEstimation.dll",
+        "lib/netcoreapp3.1/CardinalityEstimation.dll",
+        "lib/netstandard2.0/CardinalityEstimation.dll"
+      ]
+    },
+    "murmurhash/1.0.3": {
+      "sha512": "56dW8jgSsvGs/tULn+r1UbS+o0rBvgMj+6Lta6uao4j8Kzx1kVxMf56LPKO070VqjWcGyMB4K4R6M4gVKutG9A==",
+      "type": "package",
+      "path": "murmurhash/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/MurmurHash.dll",
+        "lib/net40/MurmurHash.dll",
+        "lib/net45/MurmurHash.dll",
+        "lib/netstandard2.0/MurmurHash.dll",
+        "murmurhash.1.0.3.nupkg.sha512",
+        "murmurhash.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "CardinalityEstimation >= 1.11.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\ofc10\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\ofc10\\OneDrive\\Documents\\GitHub\\Dr.-Variyam-Research-C-Implementation\\Dr.-Variyam-Research-C-Implementation.csproj",
+      "projectName": "Dr.-Variyam-Research-C-Implementation",
+      "projectPath": "C:\\Users\\ofc10\\OneDrive\\Documents\\GitHub\\Dr.-Variyam-Research-C-Implementation\\Dr.-Variyam-Research-C-Implementation.csproj",
+      "packagesPath": "C:\\Users\\ofc10\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ofc10\\OneDrive\\Documents\\GitHub\\Dr.-Variyam-Research-C-Implementation\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\ofc10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "dependencies": {
+          "CardinalityEstimation": {
+            "target": "Package",
+            "version": "[1.11.1, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

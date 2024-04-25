@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "JfNrzxdiSwZGRQMYyhKn8/sJIAhpKxbnHEzcwuPNKXu8kSWiQcT6SgKdJG9DmutoWdpeqMtBtJJYAT9Ps93Y5Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ofc10\\OneDrive\\Documents\\GitHub\\Dr.-Variyam-Research-C-Implementation\\Dr.-Variyam-Research-C-Implementation.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ofc10\\.nuget\\packages\\cardinalityestimation\\1.11.1\\cardinalityestimation.1.11.1.nupkg.sha512",
+    "C:\\Users\\ofc10\\.nuget\\packages\\murmurhash\\1.0.3\\murmurhash.1.0.3.nupkg.sha512",
+    "C:\\Users\\ofc10\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.14\\microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\ofc10\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.14\\microsoft.netcore.app.host.win-x64.7.0.14.nupkg.sha512",
+    "C:\\Users\\ofc10\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.14\\microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\ofc10\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.14\\microsoft.windowsdesktop.app.ref.7.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -18,8 +18,8 @@ public class kmerestimates {
         Set<String> set = new HashSet<String>();
         int invProbability = 1;
         String file = processFile();
-        while (fileScanner.hasNextLine()) {
-            String line = fileScanner.nextLine();
+        while (scnr.hasNextLine()) {
+            String line = scnr.nextLine();
             for (int i = 0; i < line.length() - k; i++) {
                 String currentSequence = line.substring(i, i + k);
                 // Your processing logic here
