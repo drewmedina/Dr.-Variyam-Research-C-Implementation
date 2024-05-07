@@ -107,7 +107,6 @@ class TreapString {
 
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<Double> list = new ArrayList<>();
-        Set<String> set = new HashSet<>();
         for (int i = 0; i < 100; i++) {
             Scanner scnr = new Scanner(new File("Hamlet.txt"));
             int bufferSize = 100;
@@ -118,7 +117,6 @@ class TreapString {
 
             while (scnr.hasNextLine()) {
                 String a = scnr.nextLine().trim();
-                set.add(a);
                 t++;
                 double u = random.nextDouble();
                 root = deleteNode(root, a);
@@ -141,6 +139,5 @@ class TreapString {
             scnr.close();
         }
         System.out.println(list.get(list.size() / 2));
-        System.out.println(set.size());
     }
 }
